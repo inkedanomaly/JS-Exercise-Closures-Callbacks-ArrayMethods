@@ -184,6 +184,7 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
 // updates to their facilities. Each business has assigned a representative
 // to attend the event along with a small donation.
 
+
 /**
  * ### Challenge `getFullNames`
  * 
@@ -194,9 +195,15 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function getFullNames(runners) {
+
+    return runners.map(function(runners){
+      var newObj = {};
+      newObj["fullName"] = runners.lastName + "," +  " " + runners.firstName;
+      return newObj;
+    });
+  };
+  
 
 /**
  * ### Challenge `firstNamesAllCaps`
