@@ -217,9 +217,13 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+  const runnersRun = runners.map(function(firstName){
+   return firstName.toUpperCase();
+});
+return runnersRun;
 }
+
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
@@ -234,8 +238,11 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize) {
+  const runnersTSize = runners.filter((tShirtSize) =>{
+    return tShirtSize.size == tShirtSize;
+  });
+  return runnersTSize;
 }
 
 /**
@@ -248,8 +255,11 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  const donations = runners.reduce((acc, currentValue) => {
+    return acc+= currentValue.donations;
+  },0);
+  return donations;
 }
 
 /////////////// CLOSURES ///////////////
@@ -270,12 +280,14 @@ function tallyUpDonations(/* CODE HERE */) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
+  let counter = 0;
+  function inc() {counter++; };
+  for (let i = 0; i < 10; i++, inc());
+
+  return counter;
   }
   // BROKEN CODE ENDS
-}
+
 
 /**
  * ### Challenge `counterMakerWithLimit`
@@ -297,9 +309,15 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit() {
+  let counter = 0;
+  function inc() { counter++; };
+  for (let i = 0; i < 10; i++, inc());
+
+ return counter;
 }
+
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
